@@ -45,7 +45,7 @@ int print_HEX(va_list ap, params_t *params)
 
 	if (params->l_modifier)
 		l = (unsigned long)va_arg(ap, unsigned long);
-	else if (params->h_modifer)
+	else if (params->h_modifier)
 		l = (unsigned short int)va_arg(ap, unsigned int);
 	else
 		l = (unsigned int)va_arg(ap, unsigned int);
@@ -70,13 +70,13 @@ int print_HEX(va_list ap, params_t *params)
 int print_binary(va_list ap, params_t *params)
 {
 	unsigned int n = va_arg(ap, unsigned int);
-	char *str = conbert(n, 2, CONVERT_UNSIGNED, params);
+	char *str = convert(n, 2, CONVERT_UNSIGNED, params);
 	int c = 0;
 
 	if (params->hashtag_flag && n)
 		*--str = '0';
 	params->unsign = 1;
-	return (c += print_numver(str, params));
+	return (c += print_number(str, params));
 }
 
 /**
@@ -97,7 +97,7 @@ int print_octal(va_list ap, params_t *params)
 	else if (params->h_modifier)
 		l = (unsigned short int)va_arg(ap, unsigned int);
 	else
-		l = (unsigned int)va_arg(ap, usnigned int);
+		l = (unsigned int)va_arg(ap, unsigned int);
 	str = convert(l, 8, CONVERT_UNSIGNED, params);
 
 	if (params->hashtag_flag && l)
