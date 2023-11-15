@@ -38,7 +38,7 @@ int print_number(char *str, params_t *params)
 	unsigned int i = _strlen(str);
 	int neg = (!params->unsign && *str == '-');
 
-	if (!params->precision &&*str == '0' && !str[1])
+	if (!params->precision && *str == '0' && !str[1])
 		str = "";
 	if (neg)
 	{
@@ -107,7 +107,7 @@ int print_number_left_shift(char *str, params_t *params)
 	char pad_char = ' ';
 
 	if (params->zero_flag && !params->minus_flag)
-		pad_char = '0';neg = neg2 = (!params->unsign && *str == '-');
+		pad_char = '0'; neg = neg2 = (!params->unsign && *str == '-');
 	if (neg && i < params->width && pad_char == '0' && !params->minus_flag)
 		str++;
 	else

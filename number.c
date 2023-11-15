@@ -7,7 +7,7 @@
  * @flags: argument flags
  * @params: parameter struct
  *
- * return: string
+ * Return: string
  */
 char *convert(long int num, int base, int flags, params_t *params)
 {
@@ -64,7 +64,7 @@ int print_unsigned(va_list ap, params_t *params)
  *
  * return: bytes printed
  */
-int print_address(va_list pa, params_t *params)
+int print_address(va_list ap, params_t *params)
 {
 	unsigned long int n = va_arg(ap, unsigned long int);
 	char *str;
